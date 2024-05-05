@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Welcome Message Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                {% if username %}
+                    <h1 class="display-4 mb-4">🎉 Welcome, {{ username }}! 🎉</h1>
+                    {% if first_login %}
+                        <p class="lead mb-4">🚀 Congratulations on joining us! This is your first login. Take the first step towards account security by changing your password:</p>
+                        <a href="{{ url_for('change_password') }}" class="btn btn-primary btn-lg">Change Password Now</a>
+                    {% else %}
+                        <p class="lead mb-4">👋 Welcome back! We're thrilled to have you back. Dive into the full range of features available to you:</p>
+                        {% if roles %}
+                            <h2 class="h4 mb-3">Your Roles:</h2>
+                            <ul class="list-unstyled mb-4">
+                                {% for role in roles %}
+                                    <li>{{ role }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <p class="lead mb-4">🌟 We're embarking on a journey of operational excellence. Rest assured, everything is in place for a seamless experience.</p>
+                        <p class="lead mb-4">🌱 As someone with specific roles, you understand the importance of our Seed Quality Management System. It ensures that the seeds used in agricultural processes meet the highest standards, guaranteeing optimal yield and quality of produce. 🌱</p>
+                    {% endif %}
+                {% else %}
+                    <p class="lead mb-4">❗️ You are not logged in. Get started by <a href="{{ url_for('login') }}">logging in</a> to access your account. ❗️</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- Welcome Message End -->
+{% endblock %}

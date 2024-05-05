@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h4 class="mb-4">Add Role For SQMS</h4>
+                <form action="{{ url_for('add_role') }}" method="post">
+                    <div class="mb-3">
+                        <label for="name"   class="form-label">Role Name</label>
+                        <input type="text" name="name" class="form-control"  required >
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Role</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

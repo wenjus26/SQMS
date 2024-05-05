@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block content %}
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <input type="hidden" name="entry_code" value="{{ entry_code }}">                    <h6 class="mb-4"> Master Analyse Confirmation with sample code : {{ sample_code }} </h6>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Parameters</th>
+                                    <th scope="col">Value (g)</th>
+                                    <th scope="col">Value (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Humidity</td>
+                                    <td data-label="Humidité (g)">{{ humidity_g }}</td>
+                                    <td data-label="Humidité (g)">{{ humidity_percent}}</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>Damage</td>
+                                    <td data-label="Dommages (g)">{{ damage_g }}</td>
+                                    <td data-label="Dommages (%)">{{ damage_percent}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Other Foreign Matter (OFM) </td>
+                                    <td data-label="OFM (g)">{{ ofm_g}}</td>
+                                    <td data-label="OFM (%)">{{ ofm_percent}}</td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td>Green Seed</td>
+                                    <td data-label="Graines Vertes (g)">{{ green_seed_g }}</td>
+                                    <td data-label="Graines Vertes (%)">{{ green_seed_percent }}</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Small Seed</td>
+                                    <td data-label="Petites Graines (g)">{{ small_seed_g }}</td>
+                                    <td data-label="Petites Graines (%)">{{ small_seed_percent }}</td>
+                                </tr>         
+                                
+                                
+                                <tr>
+                                    <td>Split Seed</td>
+                                    <td data-label="Graines Cassées (g)">{{ split_g }}</td>
+                                    <td data-label="Graines Cassées (%)">{{ split_percent }}</td>
+                                </tr>          
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <form method="post" action="/confirm_master_results">
+
+                                <input type="hidden" name="entry_code" value="{{ truck.entry_code }}">
+                                <input type="hidden" name="sample_code" value="{{ sample_code }}">
+                                <input type="hidden" name="humidity_g" value="{{ humidity_g }}">
+                                <input type="hidden" name="green_seed_g" value="{{ green_seed_g }}">
+                                <input type="hidden" name="small_seed_g" value="{{ small_seed_g }}">
+                                <input type="hidden" name="split_g" value="{{ split_g }}">
+                                <input type="hidden" name="ofm_g" value="{{ ofm_g }}">
+                                <input type="hidden" name="damage_g" value="{{ damage_g }}">
+                                <input type="hidden" name="humidity_percent" value="{{ humidity_percent }}">
+                                <input type="hidden" name="green_seed_percent" value="{{ green_seed_percent }}">
+                                <input type="hidden" name="small_seed_percent" value="{{ small_seed_percent }}">
+                                <input type="hidden" name="split_percent" value="{{ split_percent }}">
+                                <input type="hidden" name="ofm_percent" value="{{ ofm_percent }}">
+                                <input type="hidden" name="damage_percent" value="{{ damage_percent }}">
+                                <tr>
+                                    <td>Do you want to save this data ? there is no reverse ! </td>
+                                    <td ><button type="submit" name="confirm" value="yes">Yes</button></td>
+                                    <td ><button type="submit" name="confirm" value="no">Cancel</button></td>
+                                </tr>
+                            </form> 
+
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- Recent Sales End -->
+    {% endblock %}
+

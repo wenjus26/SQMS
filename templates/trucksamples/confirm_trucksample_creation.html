@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Confirm Truck Sample Creation Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-light text-center rounded p-4">
+            <h1>Confirm Truck Sample Creation</h1>
+            <p>Please review the details below and confirm to create the truck sample:</p>
+            <div class="table-responsive">
+                <table class="table table-bordered text-left">
+                    <thead>
+                        <tr>
+                            <th scope="col">Parameters</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Truck Number</td>
+                            <td>{{ truck_number }}</td>
+                        </tr>
+                        <tr>
+                            <td>Driver Full Name</td>
+                            <td>{{ driver_full_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Driver Phone Number</td>
+                            <td>{{ driver_phone_number }}</td>
+                        </tr>
+                        <tr>
+                            <td>Variety</td>
+                            <td>{{ variety }}</td>
+                        </tr>
+                        <tr>
+                            <td>Seed Origin</td>
+                            <td>{{ seed_origin }}</td>
+                        </tr>
+                        <tr>
+                            <td>Sample Type</td>
+                            <td>{{ sample_type }}</td>
+                        </tr>
+                        <tr>
+                            <td>Unloading Location</td>
+                            <td>{{ unloading_location }}</td>
+                        </tr>
+                        <tr>
+                            <td>Bags Received</td>
+                            <td>{{ bags_received }}</td>
+                        </tr>
+                        <tr>  
+                            <td>Bags Rejected</td>
+                            <td>{{ bags_rejected }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <form id="confirmForm" action="{{ url_for('confirm_trucksample_creation') }}" method="post">
+                <input type="hidden" name="entry_code" value="{{ entry_code }}">
+                <input type="hidden" name="truck_number" value="{{ truck_number }}">
+                <input type="hidden" name="driver_full_name" value="{{ driver_full_name }}">
+                <input type="hidden" name="driver_phone_number" value="{{ driver_phone_number }}">
+                <input type="hidden" name="variety" value="{{ variety }}">
+                <input type="hidden" name="seed_origin" value="{{ seed_origin }}">
+                <input type="hidden" name="sample_type" value="{{ sample_type }}">
+                <input type="hidden" name="unloading_location" value="{{ unloading_location }}">
+                <input type="hidden" name="bags_received" value="{{ bags_received }}">
+                <input type="hidden" name="bags_rejected" value="{{ bags_rejected }}">
+                <tr>
+                    <td colspan="2">Do you want to save this data? There is no reverse!</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="confirm" value="yes" class="btn btn-primary" onclick="return confirmSubmission()"></td>
+                    <td><input type="submit" name="confirm" value="no" class="btn btn-danger"></td>
+                </tr>
+            </form>
+        </div>
+    </div>
+    <!-- Confirm Truck Sample Creation End -->
+
+    <script>
+        function confirmSubmission() {
+            var confirmChoice = confirm("Are you sure you want to save this data?");
+            if (confirmChoice) {
+                var entryCode = "{{ entry_code }}"; // Get the entry code from template
+                alert("Entry Code is " + entryCode); // Display the entry code in an alert
+            }
+            return confirmChoice;
+        }
+    </script>
+{% endblock %}

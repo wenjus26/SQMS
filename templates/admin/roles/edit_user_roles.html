@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h4 class="mb-4">Edit User Role</h4>
+                <form action="{{ url_for('edit_user_roles', user_id=user.id) }}" method="post">
+                    <h2>{{ user.username }}</h2>
+                    <label for="roles">Rôles :</label><br>
+                    {% for role in roles %}
+                        <input type="checkbox" id="role{{ role.id }}" name="roles" value="{{ role.id }}"
+                               {% if role in user.roles %} checked {% endif %}>
+                        <label for="role{{ role.id }}">{{ role.name }}</label><br>
+                    {% endfor %}
+                    <button type="submit">Enregistrer les rôles</button>
+                </form>
+                        </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+ 
+{% endblock %}

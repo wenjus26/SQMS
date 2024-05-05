@@ -1,0 +1,20 @@
+ {% extends 'base.html' %}
+    {% block content %}
+                <div class="container-fluid pt-4 px-4">
+                    <div class="row g-4">
+                        <div class="col-sm-12 col-xl-6">
+                            <div class="bg-light rounded h-100 p-4">
+                                <h4 class="mb-4">Entry Code</h4>
+                                <form method="post">
+                                    <div class="mb-3">
+                                        <label for="entry_code" name="entry_code" class="form-label">Entry Code</label>
+                                        <input type="text" name="entry_code"  class="form-control"  required >
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Check</button>
+                                </form>
+                            </div>
+                        </div>
+ 
+                    </div>
+                </div>
+    {% endblock %}

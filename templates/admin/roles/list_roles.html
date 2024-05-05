@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Role List{% endblock %}
+{% block content %}
+
+
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">ROLES</h6>
+                        <a class="btn btn-sm btn-primary" href="{{ url_for('add_role') }}">Add Roles</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th scope="col">Role Name</th>
+                                    <th scope="col">Role Action</th>
+                                    <th scope="col">ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for role in roles %}
+                                    <tr>
+                                        <td>{{ role.name }}</td>
+                                        <td>All Route</td>
+                                        <td>
+                                            <a href="{{ url_for('edit_role', id=role.id) }}"><i class="fas fa-edit" title="Edit Role"></i> </a>
+                                            <form method="post" action="{{ url_for('delete_role', id=role.id) }}" style="display: inline;">
+                                                <button type="submit" onclick="return confirm('Are you sure you want to delete this role?')" class="btn btn-danger"><i class="fas fa-trash-alt" title="Delete Role"></i> </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Sales End -->
+ 
+{% endblock %}

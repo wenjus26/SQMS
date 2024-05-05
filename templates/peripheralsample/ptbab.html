@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">BAB PLANT</h6>
+                        <a class="btn btn-sm btn-primary" href="{{url_for('check_entry_code_peripheral')}}">Add Peripheral Results</a>
+                        
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th scope="col">Test Date</th>
+                                    <th scope="col">Trucks</th>
+                                    <th scope="col">Humidity</th>
+                                    <th scope="col">Damage</th>                                    
+                                    <th scope="col">OFM</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for truck_sample, peripheral_sample, first_decision in results %}
+                                <tr>
+                                    <td>{{ peripheral_sample.in_date }}</td>
+                                    <td>{{ truck_sample.truck_number }}</td>
+                                    <td style="color: 
+                                        {% if peripheral_sample.humidity_percent <= 10 %}
+                                            green
+                                        {% elif peripheral_sample.humidity_percent <= 12 %}
+                                            black
+                                        {% else %}
+                                            red
+                                        {% endif %}
+                                    ;">{{ peripheral_sample.humidity_percent }}</td>
+                                    <td style="color: 
+                                        {% if peripheral_sample.damage_percent <= 4 %}
+                                            green
+                                        {% elif peripheral_sample.damage_percent <= 5 %}
+                                            black
+                                        {% else %}
+                                            red
+                                        {% endif %}
+                                    ;">{{ peripheral_sample.damage_percent }}</td>
+                                    <td style="color: 
+                                        {% if peripheral_sample.ofm_percent <= 2 %}
+                                            green
+                                        {% elif peripheral_sample.ofm_percent <= 2.5 %}
+                                            black
+                                        {% else %}
+                                            red
+                                        {% endif %}
+                                    ;">{{ peripheral_sample.ofm_percent }}</td>
+                                    <td>
+                                    {% if first_decision is not none %}
+                                        {% if first_decision.decision_first == '' %}
+                                            <a href="{{ url_for('create_first_decision', truck_entry_code=truck_sample.entry_code) }}">Required Approval</a>
+                                        {% else %}
+                                            {{ first_decision.decision_first }}
+                                        {% endif %}
+                                    {% else %}
+                                        <a href="{{ url_for('create_first_decision', truck_entry_code=truck_sample.entry_code) }}">Required Approval</a>
+                                    {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- Recent Sales End -->
+    {% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+            <!-- Form Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h4 class="mb-4">Analyse truck {{ truck.truck_number }} which come on {{truck.in_date}}</h4>
+                            <form action="{{ url_for('analyze_master_sample', entry_code=truck.entry_code) }}" method="POST">
+                                <div class="mb-3">
+                                    <label for="humidity" name="hg" class="form-label">Humidity (%)</label>
+                                    <input type="text" id="humidity_percent" name="humidity_percent"  class="form-control" id="product" required >
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="damage" name="damage" class="form-label">Damage Seed (g)</label>
+                                    <input type="text" id="damage" name="damage_g"  class="form-control" id="product" required >
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label for="ofm" name="ofm" class="form-label">OFM (g)</label>
+                                    <input type="text" id="ofm_g" name="ofm_g"  class="form-control" id="product" required >
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="green seed" name="hg" class="form-label">Green Seed (g)</label>
+                                    <input type="text" id="green_seed_g" name="green_seed_g"  class="form-control" id="product" required >
+                                </div>
+
+
+
+                                <div class="mb-3">
+                                    <label for="ss" name="small seed" class="form-label">small seed (g)</label>
+                                    <input type="text" id="small_seed_g" name="small_seed_g" class="form-control" id="product" required >
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label for="split" name="split seed" class="form-label">Split (g)</label>
+                                    <input type="text" id="split_g" name="split_g"  class="form-control" id="product" required >
+                                </div>
+
+
+ 
+                                <button type="submit" class="btn btn-primary">Add Info</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+{% endblock %}
+
+
+
+ 
+

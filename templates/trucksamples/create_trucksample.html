@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block content %}
+
+            <!-- Form Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">ADD SAMPLE</h6>
+                            <form action="{{ url_for('create_truck_sample') }}" method="post">
+                                <div class="mb-3">
+                                    <label for="Truck" class="form-label">TRUCK NUMBER</label>
+                                    <input type="text" class="form-control" name="truck_number" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="driver" class="form-label">DRIVER NAME</label>
+                                    <input type="text" class="form-control" name="driver_full_name"  required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="driber-info" class="form-label">DRIVER PHONE NUMBER</label>
+                                    <input type="number" class="form-control" name="driver_phone_number"  required>
+                                </div>
+
+                                <label for="Truck" class="form-label">VARIETY</label>
+                                <select class="form-select mb-3" aria-label="Default select example" name="variety" required  >
+                                    <option value="Organic">Organic</option>
+                                    <option value="Conventional">Conventional</option>
+                                </select>
+
+                                <label   class="form-label">SEED ORIGIN</label>
+                                <select class="form-select mb-3" aria-label="Default select example"   id="origin" name="seed_origin">
+                                    <option value="WH02">Warehouse 02</option>
+                                    <option value="WH03">Warehouse 03</option>
+                                    <option value="WH04">Warehouse 04</option>
+                                    <option value="WH07">Warehouse 07</option>
+                                    <option value="WH08">Warehouse 08</option>
+                                    <option value="WH11">Warehouse 11</option>
+                                    <option value="WH12">Warehouse 12</option>
+                                    <option value="WH13">Warehouse 13</option>
+                                    <option value="WH28">Warehouse 28</option>
+                                    <option value="other">OTHER ORIGIN</option>
+                                </select>
+
+                                <div class="mb-3" id="other_origin" style="display: none;">
+                                    <input type="text" class="form-control" name="other_origin">
+                                </div>
+
+                                <label for="Truck" class="form-label">SAMPLE TYPE</label>
+                                <select class="form-select mb-3" id="sample" name="sample_type">
+                                    <option value="ps">Peripheral Sample</option>
+                                    <option value="ms">Master Sample</option>
+                                </select>
+
+                                <label for="Truck" class="form-label">UNLOADING LOCATION</label>
+                                <select class="form-select mb-3" id="location" name="unloading_location">
+                                    <option value="BO">Benin Organic</option>
+                                    <option value="BAB">Benin AgriBusiness</option>
+                                    <option value="WH02">Warehouse 02</option>
+                                    <option value="WH08">Warehouse 08</option>
+                                    <option value="WH11">Warehouse 11</option>
+                                    <option value="WH12">Warehouse 12</option>
+                                    <option value="otherlocation">OTHER LOCATION</option>
+                                </select>
+
+                                <select name="otherlocation" class="form-select mb-3" aria-label="Default select example"  id="other_lo" style="display: none;">
+                                    <option value="WH03">Warehouse 03</option>
+                                    <option value="WH04">Warehouse 04</option>
+                                    <option value="WH07">Warehouse 07</option>
+                                    <option value="WH13">Warehouse 13</option>
+                                    <option value="WH1">Warehouse 14</option>
+                                    <option value="externallo">External Warehouse</option>
+                                </select>
+                                <div class="mb-3" id="external" style="display: none;">
+                                     <input type="text" class="form-control" name="external" placeholder="Write External Location Here">
+                                </div>
+<div id="sampletext" style="display: none;">
+                                <div class="mb-3">
+                                    <label for="bags_received" class="form-label">Bags Received</label>
+                                    <input type="number" class="form-control" name="bags_received" placeholder="Write number bags received here">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="Truck" class="form-label">Bags Rejected</label>
+                                    <input type="number" class="form-control" name="bags_rejected" placeholder="Write number of bags rejected here">
+                                </div>
+
+                            </div>                            
+                                <button type="submit" class="btn btn-primary">Add Sample</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+{% endblock %}
+
+
+
+

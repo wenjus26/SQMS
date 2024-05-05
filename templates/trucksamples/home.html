@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% if username %}
+        <h1>Welcome, {{ username }}!</h1>
+        {% if first_login %}
+            <p>This is your first login. Please change your password:</p>
+            <p><a href="{{ url_for('change_password') }}">Change Password</a></p>
+        {% else %}
+            <p>Welcome back! All other features are fully operational and available for your use.</p>
+            <p>Here are your roles:</p>
+            <ul>
+                {% for role in roles %}
+                    <li>{{ role }}</li>
+                {% endfor %}
+            </ul>
+            <p>We have now commenced operational excellence. Please rest assured that everything will be running smoothly.</p>
+        {% endif %}
+        
+        <!-- Logout Link -->
+        <p><a href="{{ url_for('logout') }}">Logout</a></p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <a class="btn btn-sm btn-primary" href="{{ url_for('edit_truck_sample', id=truck_sample.id) }}">Edit Truck Sample</a>
+                        <form action="{{ url_for('delete_truck_sample', id=truck_sample.id) }}" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th scope="col">Entry Code</th>
+                                    <th scope="col">Truck Number</th>
+                                    <th scope="col">Driver Name</th>
+                                    <th scope="col">Driver phone</th>
+                                    <th scope="col">Variety</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ truck_sample.entry_code }}</td>
+                                    <td>{{ truck_sample.truck_number }}</td>
+                                    <td>{{ truck_sample.driver_name }}</td>
+                                    <td>{{ truck_sample.driver_phone_number }}</td>
+                                    <td>{{ truck_sample.variety }}</td>
+                                    
+                                
+                                
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th scope="col">Sample Type</th>
+                                    <th scope="col">Unloading location</th>
+                                    <th scope="col">Bags received</th>
+                                    <th scope="col">Bags rejected</th>
+                                    <th scope="col">Seed origin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ truck_sample.sample_type }}</td>
+                                    <td>{{ truck_sample.unloading_location }}</td>
+                                    <td>{{ truck_sample.bags_received }}</td>
+                                    <td>{{ truck_sample.bags_rejected }}</td>
+                                    <td>{{ truck_sample.seed_origin }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Sales End -->
+    {% endblock %}
+
+
+
+
+
+
+
+

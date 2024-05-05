@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">BAB PLANT</h6>
+                        <a class="btn btn-sm btn-primary" href="{{url_for('create_truck_sample')}}">Add Truck Sample</a>
+                        
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Trucks</th>
+                                    <th scope="col">Driver Phone Number</th>
+                                    <th scope="col">Sample Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for result in results %}
+                                <tr>
+                                    <td>{{result.in_date}}</td>
+                                    <td>{{result.truck_number}}</td>
+                                    <td>{{result.driver_phone_number}}</td>
+                                    <td>In Process</td>
+                                    <td><a class="btn btn-sm btn-primary" href="{{ url_for('get_truck_sample', id=result.id) }}">Detail</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Sales End -->
+    {% endblock %}

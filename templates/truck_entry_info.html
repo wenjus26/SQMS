@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Recent Sales Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h3 class="mb-0">FINAL REPORT FOR ENTRY CODE {{ truck_entry_info.TruckSample.entry_code }}</h1>
+        </div>
+        <div class="table-responsive">
+
+            {% if truck_entry_info.TruckSample %}
+            <h4>Truck Sample Information</h4>
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <tr>
+                    <th scope="col">Attribute</th>
+                    <th scope="col">Value</th>
+                </tr>
+                <tr>
+                    <td>In Date</td>
+                    <td>{{ truck_entry_info.TruckSample.in_date }}</td>
+                </tr>
+                <tr>
+                    <td>In Time</td>
+                    <td>{{ truck_entry_info.TruckSample.in_time }}</td>
+                </tr>
+                <tr>
+                    <td>Entry Code</td>
+                    <td>{{ truck_entry_info.TruckSample.entry_code }}</td>
+                </tr>
+                <tr>
+                    <td>Truck Number</td>
+                    <td>{{ truck_entry_info.TruckSample.truck_number }}</td>
+                </tr>
+                <tr>
+                    <td>Driver Name</td>
+                    <td>{{ truck_entry_info.TruckSample.driver_name }}</td>
+                </tr>
+                <tr>
+                    <td>Driver Phone Number</td>
+                    <td>{{ truck_entry_info.TruckSample.driver_phone_number }}</td>
+                </tr>
+                <tr>
+                    <td>Variety</td>
+                    <td>{{ truck_entry_info.TruckSample.variety }}</td>
+                </tr>
+                <tr>
+                    <td>Seed Origin</td>
+                    <td>{{ truck_entry_info.TruckSample.seed_origin }}</td>
+                </tr>
+                <tr>
+                    <td>Sample Type</td>
+                    <td>{{ truck_entry_info.TruckSample.sample_type }}</td>
+                </tr>
+                <tr>
+                    <td>Unloading Location</td>
+                    <td>{{ truck_entry_info.TruckSample.unloading_location }}</td>
+                </tr>
+                <tr>
+                    <td>Bags Received</td>
+                    <td>{{ truck_entry_info.TruckSample.bags_received }}</td>
+                </tr>
+                <tr>
+                    <td>Bags Rejected</td>
+                    <td>{{ truck_entry_info.TruckSample.bags_rejected }}</td>
+                </tr>
+            </table>
+            {% endif %}
+
+            {% if truck_entry_info.PeripheralSample %}
+            <h4>Peripheral Sample Information</h4>
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <tr>
+                    <th scope="col">Attribute</th>
+                    <th scope="col">Value</th>
+                </tr>
+                <tr>
+                    <td>In Date</td>
+                    <td>{{ truck_entry_info.PeripheralSample.in_date }}</td>
+                </tr>
+                <tr>
+                    <td>In Time</td>
+                    <td>{{ truck_entry_info.PeripheralSample.in_time }}</td>
+                </tr>
+                <tr>
+                    <td>Truck Entry Code</td>
+                    <td>{{ truck_entry_info.PeripheralSample.truck_entry_code }}</td>
+                </tr>
+                <tr>
+                    <td>Humidity Percent</td>
+                    <td>{{ truck_entry_info.PeripheralSample.humidity_percent }}</td>
+                </tr>
+                <tr>
+                    <td>Damage Percent</td>
+                    <td>{{ truck_entry_info.PeripheralSample.damage_percent }}</td>
+                </tr>
+                <tr>
+                    <td>OFM Percent</td>
+                    <td>{{ truck_entry_info.PeripheralSample.ofm_percent }}</td>
+                </tr>
+
+ 
+            </table>
+            {% endif %}
+
+            {% if truck_entry_info.MasterSample %}
+            <h4>Master Sample Information</h4>
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <tr>
+                    <th scope="col">Attribute</th>
+                    <th scope="col">Value</th>
+                </tr>
+                <tr>
+                    <td>In Date</td>
+                    <td>{{ truck_entry_info.MasterSample.in_date }}</td>
+                </tr>
+                <tr>
+                    <td>In Time</td>
+                    <td>{{ truck_entry_info.MasterSample.in_time }}</td>
+                </tr>
+                <tr>
+                    <td>Truck Entry Code</td>
+                    <td>{{ truck_entry_info.MasterSample.truck_entry_code }}</td>
+                </tr>
+                <tr>
+                    <td>Humidity Percent</td>
+                    <td>{{ truck_entry_info.MasterSample.humidity_percent }}</td>
+                </tr>
+                <tr>
+                    <td>Damage Percent</td>
+                    <td>{{ truck_entry_info.MasterSample.damage_percent }}</td>
+                </tr>
+                <tr>
+                    <td>OFM Percent</td>
+                    <td>{{ truck_entry_info.MasterSample.ofm_percent }}</td>
+                </tr>
+                <tr>
+                    <td>Green Seed Percent</td>
+                    <td>{{ truck_entry_info.MasterSample.green_seed_percent }}</td>
+                </tr>
+                <tr>
+                    <td>Small Seed Percent</td>
+                    <td>{{ truck_entry_info.MasterSample.small_seed_percent }}</td>
+                </tr>
+                <tr>
+                    <td>Split Percent</td>
+                    <td>{{ truck_entry_info.MasterSample.split_percent }}</td>
+                </tr>
+                <tr>
+                    <td>Sample Code</td>
+                    <td>{{ truck_entry_info.MasterSample.sample_code }}</td>
+                </tr>
+            </table>
+            {% endif %}
+
+            {% if truck_entry_info.FirstDecision %}
+            <h4>First Decision Information</h4>
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <tr>
+                    <th scope="col">Attribute</th>
+                    <th scope="col">Value</th>
+                </tr>
+                <tr>
+                    <td>In Date First</td>
+                    <td>{{ truck_entry_info.FirstDecision.in_date_first }}</td>
+                </tr>
+                <tr>
+                    <td>In Time First</td>
+                    <td>{{ truck_entry_info.FirstDecision.in_time_first }}</td>
+                </tr>
+                <tr>
+                    <td>Truck Entry Code</td>
+                    <td>{{ truck_entry_info.FirstDecision.truck_entry_code }}</td>
+                </tr>
+                <tr>
+                    <td>Decision First</td>
+                    <td>{{ truck_entry_info.FirstDecision.decision_first }}</td>
+                </tr>
+                <tr>
+                    <td>Reason First</td>
+                    <td>{{ truck_entry_info.FirstDecision.reason_first }}</td>
+                </tr>
+            </table>
+            {% endif %}
+
+            {% if truck_entry_info.FinalDecision %}
+            <h4>Final Decision Information</h4>
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <tr>
+                    <th scope="col">Attribute</th>
+                    <th scope="col">Value</th>
+                </tr>
+
+                <tr>
+                    <td>Truck Entry Code</td>
+                    <td>{{ truck_entry_info.FinalDecision.truck_entry_code }}</td>
+                </tr>
+                <tr>
+                    <td>In Date Final</td>
+                    <td>{{ truck_entry_info.FinalDecision.in_date_final }}</td>
+                </tr>
+                <tr>
+                    <td>In Time Final</td>
+                    <td>{{ truck_entry_info.FinalDecision.in_time_final }}</td>
+                </tr>
+                <tr>
+                    <td>Decision Final</td>
+                    <td>{{ truck_entry_info.FinalDecision.decision_final }}</td>
+                </tr>
+                <tr>
+                    <td>Reason Final</td>
+                    <td>{{ truck_entry_info.FinalDecision.reason_final }}</td>
+                </tr>
+            </table>
+            {% endif %}
+
+            {% if log_actions %}
+            <h2>Users Actions</h2>
+            <table class="table text-start align-middle table-bordered table-hover mb-0" border="1">
+                <tr class="text-dark">
+                    <th scope="col">Username</th>
+                    <th scope="col">Action</th>
+                    <th scope="col">Time</th>
+                </tr>
+                {% for log_action in log_actions %}
+                <tr>
+                    <td>{{ log_action.username }}</td>
+                    <td>{{ log_action.action }}</td>
+                    <td>{{ log_action.time.strftime("%Y-%m-%d %H:%M:%S") }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+<!-- Recent Sales End -->
+{% endblock %}

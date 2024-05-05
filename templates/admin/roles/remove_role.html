@@ -1,0 +1,31 @@
+ 
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h4 class="mb-4">Remove role from {{ user.username }}</h4>
+                <form action="{{ url_for('remove_role', user_id=user.id) }}" method="post">
+                {% for role in user.roles %}
+                    <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input"  id="role{{ role.id }}" name="roles" value="{{ role.id }}"
+                    {% if role in user.roles %} checked {% endif %} >
+                 <label class="form-check-label"  for="role{{ role.id }}">{{ role.name }}</label><br>
+
+                </div>
+                {% endfor %}
+                    <button type="submit" class="btn btn-primary">Remove Role</button>
+                </form>            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+

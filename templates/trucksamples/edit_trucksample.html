@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+
+            <!-- Form Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+
+                            <h6 class="mb-4">EDIT TRUCK SAMPLE</h6>
+                            <form action="{{ url_for('edit_truck_sample', id=truck_sample.id) }}" method="post">
+
+           
+                                <div class="mb-3">
+                                    <label  class="form-label" for="truck_number">TRUCK NUMBER</label>
+                                    <input type="text" class="form-control" id="truck_number" name="truck_number" value="{{ truck_sample.truck_number }}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label  class="form-label" for="driver_name">Driver Name</label>
+                                    <input type="text" class="form-control" id="driver_name" name="driver_name" value="{{ truck_sample.driver_name }}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label  class="form-label" for="driver_phone_number">Driver Phone Number</label>
+                                    <input type="text" class="form-control"  name="driver_phone_number" value="{{ truck_sample.driver_phone_number }}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label  class="form-label" for="variety">Variety</label>
+                                    <input type="text" class="form-control" id="driver_name" name="variety" value="{{ truck_sample.variety }}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label  class="form-label" for="seed_origin">Seed Origin</label>
+                                    <input type="text" class="form-control" id="driver_name" name="seed_origin" value="{{ truck_sample.seed_origin }}" required>
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label  class="form-label" for="sample_type">Sample Type</label>
+                                    <input type="text" class="form-control" iid="sample_type" name="sample_type" value="{{ truck_sample.sample_type }}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label  class="form-label" for="unloading_location">Unloading Location</label>
+                                    <input type="text" class="form-control" id="unloading_location" name="unloading_location" value="{{ truck_sample.unloading_location }}"  required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label  class="form-label" for="bags_received">Bags Received</label>
+                                    <input type="text" class="form-control" id="bags_received" name="bags_received" value="{{ truck_sample.bags_received }}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label  class="form-label" for="bags_rejected">Bags Rejected</label>
+                                    <input type="text" class="form-control" id="bags_rejected" name="bags_rejected" value="{{ truck_sample.bags_rejected }}"  required>
+                                </div>
+                                <div class="mb-3">
+
+                            </div>                            
+                                <button type="submit" class="btn btn-primary">Add Sample</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+{% endblock %}
+
+
+
+
+
+
+

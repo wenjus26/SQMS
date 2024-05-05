@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Admin Dashboard
+{% endblock %}
+
+{% block content %}
+<h1>Welcome to the Admin Dashboard</h1>
+<div class="d-flex flex-wrap">
+    
+    <a href="{{ url_for('list_roles') }}" class="btn btn-primary mb-2 mx-1">Roles Management</a>
+    <a href="{{ url_for('list_users') }}" class="btn btn-secondary mb-2 mx-1">User Management</a>
+    <a href="{{ url_for('entrance_exit_control') }}" class="btn btn-primary mb-2 mx-1">Entrance and Exit Control</a>
+    <a href="{{ url_for('user_management') }}" class="btn btn-secondary mb-2 mx-1">User Management</a>
+    <a href="{{ url_for('role_management') }}" class="btn btn-success mb-2 mx-1">Role Management</a>
+</div>
+
+<div class="d-flex flex-wrap">
+    <a href="/" class="btn btn-primary mb-2 mx-1">Accueil</a>
+    <a href="/add_truck" class="btn btn-secondary mb-2 mx-1">Ajouter un camion</a>
+    <a href="/exit/1234" class="btn btn-success mb-2 mx-1">Vue de sortie pour le code d'entrée 1234</a>
+    <a href="/shipment" class="btn btn-info mb-2 mx-1">Liste des expéditions</a>
+    <a href="/add_shipment" class="btn btn-warning mb-2 mx-1">Ajouter une expédition</a>
+    <a href="/add_product/1" class="btn btn-danger mb-2 mx-1">Ajouter un produit à l'expédition 1</a>
+    <a href="/add_weight/1" class="btn btn-primary mb-2 mx-1">Ajouter un poids à l'expédition 1</a>
+    <a href="/exit_shipment/1" class="btn btn-secondary mb-2 mx-1">Sortir l'expédition 1</a>
+</div>
+
+<div class="d-flex flex-wrap">
+    <a href="/admin" class="btn btn-success mb-2 mx-1">Espace admin</a>
+    <a href="/admin/entrance_exit_control" class="btn btn-info mb-2 mx-1">Contrôle d'entrée/sortie</a>
+    <a href="/admin/user_management" class="btn btn-warning mb-2 mx-1">Gestion des utilisateurs</a>
+    <a href="/admin/role_management" class="btn btn-danger mb-2 mx-1">Gestion des rôles</a>
+    <a href="/register" class="btn btn-primary mb-2 mx-1">Inscription</a>
+    <a href="/login" class="btn btn-secondary mb-2 mx-1">Connexion</a>
+    <a href="/change_password" class="btn btn-success mb-2 mx-1">Changer de mot de passe</a>
+    <a href="/logout" class="btn btn-info mb-2 mx-1">Déconnexion</a>
+</div>
+
+<div class="d-flex flex-wrap">
+    <a href="/users" class="btn btn-warning mb-2 mx-1">Liste des utilisateurs</a>
+    <a href="/users/add" class="btn btn-danger mb-2 mx-1">Ajouter un utilisateur</a>
+    <a href="/roles" class="btn btn-primary mb-2 mx-1">Liste des rôles</a>
+    <a href="/roles/add" class="btn btn-secondary mb-2 mx-1">Ajouter un rôle</a>
+</div>
+{% endblock %}
